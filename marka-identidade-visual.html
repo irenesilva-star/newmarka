@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marka — Identidade Visual</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --m-ink:#0e0d0c;
+  --m-paper:#faf7f2;
+  --m-warm:#f0ebe0;
+  --m-primary:#1a1a2e;
+  --m-accent:#e8472a;
+  --m-gold:#c9963a;
+  --m-light:#f5f0e8;
+  --m-muted:#8a8580;
+  --m-border:rgba(14,13,12,0.1);
+  --fd:'Fraunces',serif;
+  --fb:'Outfit',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--m-paper);color:var(--m-ink);font-family:var(--fb);font-size:15px;line-height:1.6;}
+
+/* COVER */
+.cover{min-height:100vh;background:var(--m-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 40px;}
+.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:48px 48px;}
+.cover-accent{position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(232,71,42,0.08);top:-200px;right:-200px;pointer-events:none;}
+.cover-accent2{position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(201,150,58,0.06);bottom:-100px;left:-100px;pointer-events:none;}
+.cover-content{position:relative;z-index:1;text-align:center;}
+.cover-eyebrow{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:48px;}
+
+/* LOGO MARK */
+.logo-mark{display:inline-flex;align-items:center;justify-content:center;margin-bottom:32px;}
+.logo-symbol{width:80px;height:80px;position:relative;margin-right:20px;}
+.logo-symbol svg{width:100%;height:100%;}
+.logo-wordmark{font-family:var(--fd);font-size:72px;font-weight:900;color:#fff;letter-spacing:-0.04em;line-height:1;}
+.logo-wordmark .dot{color:var(--m-accent);}
+.cover-tagline{font-family:var(--fd);font-size:18px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.45);margin-top:16px;letter-spacing:0.02em;}
+.cover-meta{display:flex;gap:40px;margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08);}
+.cover-meta-item{text-align:center;}
+.cover-meta-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:4px;}
+.cover-meta-val{font-size:13px;color:rgba(255,255,255,0.5);}
+
+/* SECTIONS */
+.section{padding:80px 60px;max-width:1100px;margin:0 auto;}
+.section-header{margin-bottom:52px;}
+.section-num{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--m-accent);margin-bottom:10px;}
+.section-title{font-family:var(--fd);font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1.05;letter-spacing:-0.025em;margin-bottom:10px;}
+.section-sub{font-size:15px;color:var(--m-muted);max-width:480px;line-height:1.7;}
+hr.divider{border:none;border-top:1px solid var(--m-border);margin:0 60px;}
+
+/* LOGO VARIATIONS */
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:16px;overflow:hidden;border:1px solid var(--m-border);}
+.logo-box{padding:48px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+.logo-box-dark{background:var(--m-primary);}
+.logo-box-light{background:#fff;}
+.logo-box-warm{background:var(--m-warm);}
+.logo-box-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;}
+.logo-box-dark .logo-box-label{color:rgba(255,255,255,0.25);}
+.logo-box-light .logo-box-label,.logo-box-warm .logo-box-label{color:var(--m-muted);}
+
+/* INLINE LOGO COMPONENT */
+.inline-logo{display:inline-flex;align-items:center;gap:10px;}
+.inline-logo-symbol{width:36px;height:36px;flex-shrink:0;}
+.inline-logo-text{font-family:var(--fd);font-weight:900;letter-spacing:-0.03em;line-height:1;}
+
+/* COLORS */
+.color-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.color-swatch{border-radius:12px;overflow:hidden;border:1px solid var(--m-border);}
+.color-block{height:120px;}
+.color-info{padding:14px 16px;background:#fff;}
+.color-name{font-size:13px;font-weight:600;margin-bottom:3px;}
+.color-hex{font-size:11px;color:var(--m-muted);font-family:monospace;}
+.color-role{font-size:11px;color:var(--m-muted);margin-top:4px;}
+
+/* TYPOGRAPHY */
+.type-showcase{display:flex;flex-direction:column;gap:28px;}
+.type-row{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--m-border);}
+.type-row:last-child{border-bottom:none;}
+.type-meta{font-size:11px;color:var(--m-muted);letter-spacing:0.05em;}
+.type-meta strong{display:block;font-size:12px;font-weight:600;color:var(--m-ink);margin-bottom:3px;letter-spacing:0;}
+.type-sample-h1{font-family:var(--fd);font-size:52px;font-weight:900;line-height:1.0;letter-spacing:-0.03em;}
+.type-sample-h2{font-family:var(--fd);font-size:32px;font-weight:700;line-height:1.1;letter-spacing:-0.02em;}
+.type-sample-h3{font-family:var(--fd);font-size:22px;font-weight:700;font-style:italic;}
+.type-sample-body{font-family:var(--fb);font-size:16px;font-weight:400;line-height:1.7;color:var(--m-muted);max-width:540px;}
+.type-sample-caption{font-family:var(--fb);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--m-accent);}
+
+/* LOGO CONSTRUCTION */
+.construction-box{background:#fff;border:1px solid var(--m-border);border-radius:16px;padding:52px;display:flex;align-items:center;justify-content:center;}
+
+/* USAGE */
+.usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.usage-card{border-radius:16px;overflow:hidden;border:1px solid var(--m-border);}
+.usage-card-header{padding:10px 16px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;display:flex;align-items:center;gap:7px;}
+.usage-card-header.good{background:#e8f5ee;color:#085041;}
+.usage-card-header.bad{background:#fce8e8;color:#7a1f1f;}
+.dot-good{width:7px;height:7px;border-radius:50%;background:#1a7a4a;}
+.dot-bad{width:7px;height:7px;border-radius:50%;background:#e24b4a;}
+.usage-preview{padding:36px;display:flex;align-items:center;justify-content:center;min-height:160px;}
+
+/* MOCKUPS */
+.mockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.mockup-card{border-radius:16px;overflow:hidden;border:1px solid var(--m-border);}
+.mockup-label{padding:12px 18px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--m-muted);background:var(--m-warm);border-bottom:1px solid var(--m-border);}
+
+/* CARD MOCKUP */
+.biz-card{background:var(--m-primary);padding:32px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+.biz-card::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(232,71,42,0.1);top:-80px;right:-60px;}
+.biz-card-name{font-family:var(--fd);font-size:15px;font-weight:700;color:#fff;margin-bottom:2px;}
+.biz-card-role{font-size:11px;color:rgba(255,255,255,0.4);}
+.biz-card-contact{font-size:11px;color:rgba(255,255,255,0.4);line-height:1.7;}
+
+/* EMAIL SIG */
+.email-sig{background:#fff;padding:28px 32px;border-left:3px solid var(--m-accent);}
+.sig-name{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--m-ink);margin-bottom:2px;}
+.sig-role{font-size:12px;color:var(--m-muted);margin-bottom:12px;}
+.sig-contact{font-size:12px;color:var(--m-muted);line-height:1.8;}
+.sig-contact a{color:var(--m-accent);text-decoration:none;}
+
+/* SOCIAL POST */
+.social-post{background:var(--m-warm);padding:28px 28px 20px;}
+.social-post-logo{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+.social-post-title{font-family:var(--fd);font-size:18px;font-weight:700;line-height:1.2;margin-bottom:10px;}
+.social-post-text{font-size:13px;color:var(--m-muted);line-height:1.6;}
+.social-post-tag{display:inline-block;margin-top:10px;font-size:12px;color:var(--m-accent);font-weight:500;margin-right:8px;}
+
+/* STAMP */
+.stamp-preview{background:var(--m-primary);padding:40px;display:flex;align-items:center;justify-content:center;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.fu{opacity:0;animation:fadeUp 0.7s ease forwards;}
+.d1{animation-delay:0.15s;}.d2{animation-delay:0.3s;}.d3{animation-delay:0.5s;}
+
+@media(max-width:768px){
+  .section{padding:52px 24px;}
+  hr.divider{margin:0 24px;}
+  .logo-grid{grid-template-columns:1fr;}
+  .color-grid{grid-template-columns:repeat(2,1fr);}
+  .usage-grid,.mockup-grid{grid-template-columns:1fr;}
+  .type-row{grid-template-columns:1fr;gap:8px;}
+  .cover-meta{gap:24px;flex-wrap:wrap;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-accent"></div>
+  <div class="cover-accent2"></div>
+  <div class="cover-content">
+    <div class="cover-eyebrow fu">Identidade Visual — Guia de Marca</div>
+    <div class="logo-mark fu d1">
+      <div class="logo-symbol">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/>
+          <path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="40" cy="48" r="5" fill="white"/>
+        </svg>
+      </div>
+      <div class="logo-wordmark">marka<span class="dot">.</span></div>
+    </div>
+    <div class="cover-tagline fu d2">Marketing inteligente para negócios locais</div>
+    <div class="cover-meta fu d3">
+      <div class="cover-meta-item"><div class="cover-meta-label">Versão</div><div class="cover-meta-val">1.0</div></div>
+      <div class="cover-meta-item"><div class="cover-meta-label">Criado em</div><div class="cover-meta-val">2025</div></div>
+      <div class="cover-meta-item"><div class="cover-meta-label">Domínio</div><div class="cover-meta-val">marka-portugal.pt</div></div>
+      <div class="cover-meta-item"><div class="cover-meta-label">Setor</div><div class="cover-meta-val">Marketing · IA</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 01 LOGÓTIPO -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">01 — Logótipo</div>
+    <h2 class="section-title">A marca em todas as versões</h2>
+    <p class="section-sub">O logótipo combina um símbolo geométrico com a tipografia Fraunces — uma fonte serif com carácter e modernidade.</p>
+  </div>
+  <div class="logo-grid">
+    <div class="logo-box logo-box-dark">
+      <div class="inline-logo">
+        <svg class="inline-logo-symbol" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+        <div class="inline-logo-text" style="font-size:32px;color:#fff;">marka<span style="color:#e8472a;">.</span></div>
+      </div>
+      <div class="logo-box-label">Fundo escuro</div>
+    </div>
+    <div class="logo-box logo-box-light">
+      <div class="inline-logo">
+        <svg class="inline-logo-symbol" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+        <div class="inline-logo-text" style="font-size:32px;color:#0e0d0c;">marka<span style="color:#e8472a;">.</span></div>
+      </div>
+      <div class="logo-box-label">Fundo branco</div>
+    </div>
+    <div class="logo-box logo-box-warm">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <svg width="56" height="56" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:900;color:#0e0d0c;letter-spacing:-0.03em;">marka<span style="color:#e8472a;">.</span></div>
+      </div>
+      <div class="logo-box-label">Versão compacta</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 02 SÍMBOLO -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">02 — Símbolo</div>
+    <h2 class="section-title">O ícone da Marka</h2>
+    <p class="section-sub">O símbolo é a letra M estilizada como um gráfico de crescimento — une a inicial da marca com a promessa do serviço. O ponto vermelho marca o destino.</p>
+  </div>
+  <div class="construction-box">
+    <div style="display:flex;align-items:center;gap:60px;flex-wrap:wrap;justify-content:center;">
+      <div style="text-align:center;">
+        <svg width="120" height="120" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#1a1a2e"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="#e8472a"/></svg>
+        <div style="font-size:12px;color:#8a8580;margin-top:12px;font-weight:500;">Versão escura</div>
+      </div>
+      <div style="text-align:center;">
+        <svg width="120" height="120" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+        <div style="font-size:12px;color:#8a8580;margin-top:12px;font-weight:500;">Versão accent</div>
+      </div>
+      <div style="text-align:center;">
+        <svg width="120" height="120" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#f0ebe0"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="#1a1a2e" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="#e8472a"/></svg>
+        <div style="font-size:12px;color:#8a8580;margin-top:12px;font-weight:500;">Versão clara</div>
+      </div>
+      <div style="text-align:center;">
+        <svg width="120" height="120" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="white" stroke="#e8e4dc" stroke-width="1.5"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="#1a1a2e" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="#e8472a"/></svg>
+        <div style="font-size:12px;color:#8a8580;margin-top:12px;font-weight:500;">Versão outline</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:20px;background:var(--m-warm);border-radius:12px;padding:20px 24px;font-size:14px;color:var(--m-muted);line-height:1.7;">
+    <strong style="color:var(--m-ink);font-weight:600;">Conceito:</strong> A forma em M é traçada como uma linha de gráfico de desempenho — sobe, atinge o pico, e o ponto vermelho marca o objetivo alcançado. É simultaneamente a inicial da marca e a metáfora do serviço: crescimento com estratégia.
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 03 CORES -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">03 — Paleta de cores</div>
+    <h2 class="section-title">Cores com propósito</h2>
+    <p class="section-sub">Cinco cores que equilibram autoridade, energia e calor — ideais para comunicar com PMEs locais.</p>
+  </div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-block" style="background:#1a1a2e;"></div>
+      <div class="color-info">
+        <div class="color-name">Marka Ink</div>
+        <div class="color-hex">#1A1A2E</div>
+        <div class="color-role">Cor principal · fundos</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#e8472a;"></div>
+      <div class="color-info">
+        <div class="color-name">Marka Red</div>
+        <div class="color-hex">#E8472A</div>
+        <div class="color-role">Accent · CTAs · destaque</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#c9963a;"></div>
+      <div class="color-info">
+        <div class="color-name">Marka Gold</div>
+        <div class="color-hex">#C9963A</div>
+        <div class="color-role">Premium · tags · badges</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#faf7f2;"></div>
+      <div class="color-info">
+        <div class="color-name">Marka Paper</div>
+        <div class="color-hex">#FAF7F2</div>
+        <div class="color-role">Fundo claro · espaço</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#f0ebe0;border:1px solid #e8e4dc;"></div>
+      <div class="color-info">
+        <div class="color-name">Marka Warm</div>
+        <div class="color-hex">#F0EBE0</div>
+        <div class="color-role">Superfícies · secções</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color usage examples -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;">
+    <div style="background:#1a1a2e;border-radius:12px;padding:28px 24px;display:flex;align-items:center;gap:16px;">
+      <svg width="40" height="40" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+      <div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;">marka<span style="color:#e8472a;">.</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">Combinação primária</div>
+      </div>
+    </div>
+    <div style="background:#f0ebe0;border-radius:12px;padding:28px 24px;display:flex;align-items:center;gap:16px;border:1px solid #e8e4dc;">
+      <svg width="40" height="40" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#1a1a2e"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="#e8472a"/></svg>
+      <div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#0e0d0c;">marka<span style="color:#e8472a;">.</span></div>
+        <div style="font-size:12px;color:#8a8580;margin-top:2px;">Combinação quente</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 04 TIPOGRAFIA -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">04 — Tipografia</div>
+    <h2 class="section-title">Duas fontes. Um carácter.</h2>
+    <p class="section-sub">Fraunces para impacto e personalidade. Outfit para clareza e leitura.</p>
+  </div>
+  <div class="type-showcase">
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Fraunces</strong>
+        Display · Títulos<br>Peso: 700–900<br>Uso: headlines, logo
+      </div>
+      <div class="type-sample-h1">Mais obras.<br>Mais clientes.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Fraunces Italic</strong>
+        Display · Ênfase<br>Peso: 300i–700i<br>Uso: subtítulos, taglines
+      </div>
+      <div class="type-sample-h3" style="font-size:28px;color:#8a8580;">Marketing inteligente para negócios locais</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Outfit Regular</strong>
+        Body · Leitura<br>Peso: 300–400<br>Uso: parágrafos, UI
+      </div>
+      <div class="type-sample-body">Criamos planos de marketing personalizados para pequenas e médias empresas — usando inteligência artificial para tornar o processo mais rápido, acessível e eficaz do que qualquer agência tradicional.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Outfit Medium</strong>
+        Labels · UI<br>Peso: 500–600<br>Uso: botões, tags, nav
+      </div>
+      <div class="type-sample-caption">Marketing · Estratégia · PME · Portugal</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 05 USO CORRETO -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">05 — Uso correto</div>
+    <h2 class="section-title">O que fazer e não fazer</h2>
+    <p class="section-sub">Regras simples para manter a consistência da marca em todos os materiais.</p>
+  </div>
+  <div class="usage-grid">
+    <div class="usage-card">
+      <div class="usage-card-header good"><span class="dot-good"></span>Correto — fundo escuro</div>
+      <div class="usage-preview" style="background:#1a1a2e;">
+        <div class="inline-logo">
+          <svg class="inline-logo-symbol" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div class="inline-logo-text" style="font-size:28px;color:#fff;">marka<span style="color:#e8472a;">.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="usage-card">
+      <div class="usage-card-header good"><span class="dot-good"></span>Correto — fundo claro</div>
+      <div class="usage-preview" style="background:#faf7f2;">
+        <div class="inline-logo">
+          <svg class="inline-logo-symbol" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div class="inline-logo-text" style="font-size:28px;color:#0e0d0c;">marka<span style="color:#e8472a;">.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="usage-card">
+      <div class="usage-card-header bad"><span class="dot-bad"></span>Errado — sem distorção</div>
+      <div class="usage-preview" style="background:#f5f5f5;">
+        <div class="inline-logo" style="transform:scaleX(1.5);">
+          <svg class="inline-logo-symbol" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div class="inline-logo-text" style="font-size:28px;color:#0e0d0c;">marka<span style="color:#e8472a;">.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="usage-card">
+      <div class="usage-card-header bad"><span class="dot-bad"></span>Errado — sem alterar cores</div>
+      <div class="usage-preview" style="background:#f5f5f5;">
+        <div class="inline-logo">
+          <svg class="inline-logo-symbol" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#555"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="#aaa"/></svg>
+          <div class="inline-logo-text" style="font-size:28px;color:#555;">marka<span style="color:#888;">.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 06 APLICAÇÕES -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">06 — Aplicações</div>
+    <h2 class="section-title">A marca em contexto real</h2>
+    <p class="section-sub">Como a Marka aparece nos materiais do dia-a-dia.</p>
+  </div>
+  <div class="mockup-grid">
+
+    <!-- Cartão de visita -->
+    <div class="mockup-card">
+      <div class="mockup-label">Cartão de visita</div>
+      <div class="biz-card">
+        <div class="inline-logo">
+          <svg width="28" height="28" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.03em;">marka<span style="color:#e8472a;">.</span></div>
+        </div>
+        <div>
+          <div class="biz-card-name">O Teu Nome</div>
+          <div class="biz-card-role" style="margin-bottom:10px;">Fundador · Estratega de Marketing</div>
+          <div class="biz-card-contact">
+            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97fff2fbfbf8d7faf6e5fcf6b9e7e3">[email&#160;protected]</a><br>
+            +351 9XX XXX XXX<br>
+            marka-portugal.pt
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assinatura de email -->
+    <div class="mockup-card">
+      <div class="mockup-label">Assinatura de email</div>
+      <div style="background:#fff;padding:24px;">
+        <div class="email-sig">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+            <svg width="32" height="32" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+            <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:#0e0d0c;letter-spacing:-0.03em;">marka<span style="color:#e8472a;">.</span></div>
+          </div>
+          <div class="sig-name">O Teu Nome</div>
+          <div class="sig-role">Fundador — Marketing com IA para PMEs</div>
+          <div class="sig-contact">
+            <a href="#"><span class="__cf_email__" data-cfemail="f29a979e9e9db29f93809993dc8286">[email&#160;protected]</span></a> · <a href="#">marka-portugal.pt</a><br>
+            +351 9XX XXX XXX · Lisboa, Portugal
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post redes sociais -->
+    <div class="mockup-card">
+      <div class="mockup-label">Post Instagram / LinkedIn</div>
+      <div class="social-post">
+        <div class="social-post-logo">
+          <svg width="28" height="28" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <span style="font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:#0e0d0c;">marka<span style="color:#e8472a;">.</span></span>
+        </div>
+        <div class="social-post-title">O teu negócio merece um plano de marketing real.</div>
+        <div class="social-post-text">Não um template genérico. Um plano feito para o teu setor, a tua zona e os teus clientes — em 48 horas.</div>
+        <div>
+          <span class="social-post-tag">#marketing</span>
+          <span class="social-post-tag">#pme</span>
+          <span class="social-post-tag">#portugal</span>
+          <span class="social-post-tag">#negóciolocal</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Favicon / Avatar -->
+    <div class="mockup-card">
+      <div class="mockup-label">Favicon · Avatar · App icon</div>
+      <div style="background:#f5f5f5;padding:32px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <svg width="64" height="64" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div style="font-size:10px;color:#8a8580;margin-top:8px;">64px</div>
+        </div>
+        <div style="text-align:center;">
+          <svg width="40" height="40" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div style="font-size:10px;color:#8a8580;margin-top:8px;">40px</div>
+        </div>
+        <div style="text-align:center;">
+          <svg width="24" height="24" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div style="font-size:10px;color:#8a8580;margin-top:8px;">24px</div>
+        </div>
+        <div style="text-align:center;">
+          <svg width="16" height="16" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+          <div style="font-size:10px;color:#8a8580;margin-top:8px;">16px</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:var(--m-primary);padding:48px 60px;text-align:center;">
+  <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:16px;">
+    <svg width="36" height="36" viewBox="0 0 80 80" fill="none"><rect x="4" y="4" width="72" height="72" rx="18" fill="#e8472a"/><path d="M20 56 L20 28 L40 48 L60 28 L60 56" stroke="white" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="40" cy="48" r="5" fill="white"/></svg>
+    <div style="font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.0
